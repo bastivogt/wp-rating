@@ -85,8 +85,22 @@ function wp_rating_add_custom_meta_box() {
 
 function wp_rating_editor($post) {
   $output = '';
-  $output .= '<p>Willkommen bei Rating!</p>';
-  $output .= "<p>$post->ID</p>";
+  //$output .= '<p>Willkommen bei Rating!</p>';
+  //$output .= "<p>$post->ID</p>";
+  $output .=
+  "
+  <table class='form-table'><tbody>
+    <tr>
+      <th scope='row'>
+        <label for='wp_rating_shortcode'>" . __('Shortcode', 'wp-rating') . "</label>
+      </th>
+      <td>
+        <input type='text' name='wp_rating_shortcode' value='[wp_rating id=\"$post->ID\"]'/>
+      </td>
+    </tr>
+
+  </tbody></table>
+  ";
   echo $output;
   /*echo 'Test <br/>';
   var_dump($post);
